@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<div id="Titulo" align="center" style="font-size: 25px">
+		<font color="#DAA520" face="arial, verdana, helvetica"
+			style="font-size: 60px"> <b> <i> Registre su solicitud
+			</i>
+		</b>
+		</font>
+	</div>
+
+</h:head>
+<h:body style="background-color:#B0E0E6;">
+
+
+	<style>
+body {
+	background-image:
+		url('https://santanagolf.com/wp-content/uploads/2018/05/prueba-fondo-p%C3%A1gina-web-1170x780.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+#form2 {
+	padding-top: 50px;
+}
+
+.ui-panelgrid td {
+	background-color: #FFFFFF ! important;
+}
+
+#Pendiente {
+	padding-top: 30px;
+}
+</style>
+
+	<center>
+
+
+		<p:dataTable id="Datos" var="dato"
+			value="#{controladorSolicitud.result}">
+
+			<p:column headerText="Nombre" sortBy="#{dato.usuario}"
+				style="font-size: 25px;" filterBy="#{dato.usuario}">
+				<h:outputText value="#{dato.usuario}" style="font-size: 25px;" />
+			</p:column>
+
+			<p:column headerText="Apellidos" sortBy="#{dato.apellidos}"
+				style="font-size: 25px;" filterBy="#{dato.apellidos}">
+				<h:outputText value="#{dato.apellidos}" style="font-size: 25px;" />
+			</p:column>
+
+			<p:column headerText="Celular" sortBy="#{dato.celular}"
+				style="font-size: 25px;" filterBy="#{dato.celular}">
+				<h:outputText value="#{dato.celular}" style="font-size: 25px;" />
+			</p:column>
+
+			<p:column headerText="Cedula" sortBy="#{dato.cedula}"
+				style="font-size: 25px;" filterBy="#{dato.cedula}">
+				<h:outputText value="#{dato.cedula}" style="font-size: 25px;" />
+			</p:column>
+
+			<p:column headerText="Direccion" sortBy="#{dato.direccion}"
+				style="font-size: 25px;" filterBy="#{dato.direccion}">
+				<h:outputText value="#{dato.direccion}" style="font-size: 25px;" />
+			</p:column>
+
+			<p:column headerText="Correo" sortBy="#{dato.codigoCliente}"
+				style="font-size: 25px;" filterBy="#{dato.codigoCliente}">
+				<h:outputText value="#{dato.codigoCliente}" style="font-size: 25px;" />
+			</p:column>
+		</p:dataTable>
+
+			<h:form id="form2">
+				<p:panelGrid columns="2">
+					<p:outputLabel for="popup" value="Fecha:"
+						style="font-family: Comic Sans MS, Arial, Verdana; font-size: 25px; color: #000000" />
+					<p:datePicker id="popup" value="#{calendarView.date2}"
+						style="font-family: Comic Sans MS, Arial, Verdana; font-size: 20px" />
+
+					<p:outputLabel value="Servicio: "
+						style="font-family: Comic Sans MS,Arial,Verdana; font-size: 25px; color: #000000" />
+					<p:selectOneMenu id="lazy"
+						value="#{controladorSolicitud.solicitud.servicios.codigo}"
+						dynamic="true" style="width: 235px; height: 25px;">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{controladorSolicitud.listaservicios}"
+							var="theme" itemLabel="#{theme.nombre}"
+							itemValue="#{theme.codigo}" />
+
+					</p:selectOneMenu>
+
+				</p:panelGrid>
+
+				<br></br>
+				<p:textEditor id="Pendiente" widgetVar="editor1"
+					value="#{selectOneMenuView.cities}" height="200"
+					style="width: 1000px; margin-bottom:10px; background-color:#FFFFFF;" />
+
+				<br></br>
+
+				<p:commandButton value="Limpiar"
+					action="#{selectOneMenuView.cities}"
+					style="width: 150px; height: 45px; font-family: arial, verdana, helvetica; font-size: 25px; color:#000000;  background: #FFFFFF" />
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<p:commandButton value="Agregar"
+					action="#{principalControlador.guardar}"
+					style="width: 150px; height: 45px; font-family: arial, verdana, helvetica; font-size: 25px; color:#000000;  background: #FFFFFF" />
+
+				<div id="Pendiente">
+
+					<p:dataTable id="Solicitudes" var="solicitud"
+						value="#{principalControlador.result}" style="width:1000px">
+
+						<p:column headerText="Codigo Solicitud "
+							sortBy="#{producto.nombre}" filterBy="#{producto.nombre}">
+							<h:outputText value="#{producto.nombre}" />
+						</p:column>
+						<p:column headerText="Codigo Servicio "
+							sortBy="#{producto.descripcion}"
+							filterBy="#{producto.descripcion}">
+							<h:outputText value="#{producto.descripcion}" />
+						</p:column>
+						<p:column headerText="Fecha" sortBy="#{producto.cantidad}">
+							<h:outputText value="#{producto.cantidad}" />
+						</p:column>
+						<p:column headerText="Descripcion"
+							sortBy="#{producto.precioUnitario}">
+							<h:outputText value="#{producto.precioUnitario}" />
+						</p:column>
+
+						<p:column style="width:150px">
+							<p:commandButton update=":otro:ProductoDetalle"
+								oncomplete="PF('Detalles').show()" icon="ui-icon ui-icon-search"
+								title="View">
+								<f:setPropertyActionListener value="#{producto}"
+									target="#{principalControlador.principal}" />
+							</p:commandButton>
+
+							<p:commandButton update=":otro:Productos" class="button"
+								icon="ui-icon ui-icon-closethick"
+								actionListener="#{principalControlador.eliminar(producto)}"></p:commandButton>
+
+							<p:commandButton update=":otro:ProductoEditar"
+								oncomplete="PF('Editar').show()" icon="ui-icon ui-icon-pencil"
+								title="View">
+								<f:setPropertyActionListener value="#{producto}"
+									target="#{principalControlador.principal}" />
+							</p:commandButton>
+						</p:column>
+
+					</p:dataTable>
+				</div>
+
+
+
+
+
+			</h:form>
+	</center>
+</h:body>
+</html>

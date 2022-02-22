@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<div id="Titulo" align="center" style="font-size: 15px">
+		<font color="#000000" face="arial, verdana, helvetica"
+			style="font-size: 60px"> <b> <i> Registrate </i>
+		</b>
+		</font>
+	</div>
+
+</h:head>
+<h:body style="background-color:#B0E0E6;">
+
+	<style>
+body {
+	background-image:
+		url('https://image.freepik.com/foto-gratis/trabajadores-construccion-globo_1401-6.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+#Titulo {
+	font-weight: 1000;
+	font-family: impact;
+	font-size: 46px;
+	text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+		1px -1px 1px #000;
+	-webkit-text-stroke: 1px black;
+}
+
+#form {
+	padding-top: 70px;
+}
+</style>
+
+	<h:form id="form">
+
+		<div align="center">
+
+			<strong><h:outputText value="Nombres:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Nombres"
+				value="#{controladorRegistroCliente.cliente.nombre}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /> <br></br> <br></br> <strong><h:outputText
+					value="Apellidos:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Apellidos"
+				value="#{controladorRegistroCliente.cliente.apellidos}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /> <br></br> <br></br> <strong><h:outputText
+					value="Celular:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Celular"
+				value="#{controladorRegistroCliente.cliente.celular}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /> <br></br> <br></br> <strong><h:outputText
+					value="Cedula:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Cedula"
+				value="#{controladorRegistroCliente.cliente.cedula}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /><br></br> <br></br> <strong><h:outputText
+					value="Direccion:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Direccion"
+				value="#{controladorRegistroCliente.cliente.direccion}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /><br></br> <br></br> <strong><h:outputText
+					value="Correo:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:inputText id="Correo"
+				value="#{controladorRegistroCliente.cliente.codigoCliente}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<b /><br></br> <br></br> <strong><h:outputText
+					value="ContraseĂ±a:"
+					style="color: #000000; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px" /></strong>
+			&nbsp;&nbsp;
+			<p:inputText id="Contrasenia"
+				value="#{controladorRegistroCliente.login.contrasenia}"
+				style="width: 230px; height: 30px; font-family: Comic Sans MS, Arial, Verdana; font-size: 25px">
+			</p:inputText>
+			<br></br> <br></br> <b /> <strong> <p:commandButton
+					value="Registrar"
+					action="#{controladorRegistroCliente.registroCliente}" 
+					style="width: 280px; height: 55px; font-family: arial, verdana, helvetica; font-size: 30px; color: #000000; background : #FFD700">
+				</p:commandButton> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</strong> <strong> <p:commandButton value="Crear solicitud"
+					action="Solicitud.xhtml"
+					style="width: 280px; height: 55px; font-family: arial, verdana, helvetica; font-size: 30px; color: #000000; background : #FFD700">
+				</p:commandButton>
+			</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p:commandButton value="Regresar" action="inicio.xhtml"
+				style="width: 280px; height: 55px; font-family: arial, verdana, helvetica; font-size: 30px; color: #000000; background : #FFD700">
+			</p:commandButton>
+
+		</div>
+	</h:form>
+</h:body>
+</html>

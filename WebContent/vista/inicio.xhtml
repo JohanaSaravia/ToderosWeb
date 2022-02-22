@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+
+	<div align="center" style="font-size: 35px">
+		<font color="#FFFFFF" face="arial, verdana, helvetica"
+			style="font-size: 80px"> <b> <i> Los Toderos </i>
+		</b>
+		</font>
+	</div>
+
+</h:head>
+
+<h:body>
+
+	<style>
+body {
+	background-image:
+		url('http://photos.demandstudios.com/getty/article/178/195/55909781.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+#Tabla {
+	border: 5px solid black;
+}
+
+#centro {
+	padding-top: 70px;
+}
+
+#Opciones {
+	font-weight: 1000;
+}
+
+#Botones {
+	font-weight: 1000;
+	font-family: impact;
+	font-size: 46px;
+	text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+		1px -1px 1px #000;
+	-webkit-text-stroke: 2px black;
+}
+</style>
+
+	<h:form>
+		<div id="centro" align="center">
+			<p>
+				<font color="#00000" face="arial, verdana, helvetica"
+					style="font-size: 35px"> <b> <i> Ingrese sus datos </i>
+				</b>
+				</font>
+			</p>
+		</div>
+		<div align="center">
+
+
+			<p:inputText value="#{loginControlador.login.usuario}"
+				placeholder="Usuario"
+				style="width: 250px; height: 38px; font-family: arial, verdana, helvetica; font-size: 20px; color: #000000">
+			</p:inputText>
+
+		</div>
+		<div id="Opciones" align="center" style="font-size: 30px">
+
+			<br></br>
+			<p:inputText value="#{loginControlador.login.contrasenia}"
+				placeholder="Contraseña"
+				style="width: 250px; height: 38px; font-family: arial, verdana, helvetica; font-size: 20px; color: #000000">
+			</p:inputText>
+		</div>
+
+		<div id="Botones" align="center" style="font-size: 30px">
+
+			<h:panelGrid columns="2" style="margin-bottom:20px; color: 	#FFFFFF"
+				cellpadding="5">
+				<p:outputLabel for="console" />
+				<p:selectOneRadio id="console"
+					value="#{loginControlador.login.tipoUsuario}" unselectable="true">
+					<f:selectItem itemLabel="Trabajador" itemValue="Trabajador" />
+					<f:selectItem itemLabel="Administrador" itemValue="Administrador" />
+					<f:selectItem itemLabel="Cliente" itemValue="Cliente" />
+				</p:selectOneRadio>
+			</h:panelGrid>
+		</div>
+
+		<div id="Opciones" align="center" style="font-size: 0px">
+
+			<br></br>
+			<p:commandButton value="Ingresar"
+				action="#{loginControlador.ingresar}"
+				style="width: 210px; height: 55px; font-family: arial, verdana, helvetica; font-size: 30px; color: #000000">
+			</p:commandButton>
+		</div>
+
+		<div align="center" style="font-size: 30px">
+			<br></br>
+			<p:commandButton value="Registrarse"
+				action="#{loginControlador.registro}"
+				style="width: 210px; height: 55px; font-family: arial, verdana, helvetica; font-size: 30px; color: #000000">
+			</p:commandButton>
+
+		</div>
+
+
+	</h:form>
+
+
+</h:body>
+
+</html>
